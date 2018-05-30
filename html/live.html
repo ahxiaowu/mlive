@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+	<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+	<title>直播</title>
+	<link rel="stylesheet" type="text/css" href="../css/api.css" />
+	<style>
+	.wrap {
+		display: -webkit-box;
+		/*-webkit-box-orient: horizontal;
+		-webkit-flex-flow: row;*/
+		-webkit-box-orient: vertical;
+		-webkit-flex-flow: column;
+		height: 300px;
+		width: 100%;
+	}
+	.item {
+		-webkit-box-flex: 1;
+		-webkit-flex: 1;
+	}
+</style>
+</head>
+
+<body>
+	<div class="wrap">
+		
+		<div class="item" tapmode onclick="funLive('girl')">
+			美女直播室
+		</div>
+
+		<div class="item"  tapmode onclick="funLive('boy')">
+			靓男平台
+		</div>
+
+	</div>    
+
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+	apiready = function() {
+	};
+
+	function funLive(channel){
+		var ytylive = api.require('ytylive');
+		var param = {
+			video_url:"rtmp://192.168.154.38/live",
+			video_name:channel
+		};
+
+		ytylive.startVideo(param,callBack);
+		function callBack(ret){
+			//console.log(JSON.stringify(ret));
+		}
+	}
+
+
+</script>
+
+</html>
